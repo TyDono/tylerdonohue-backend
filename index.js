@@ -7,8 +7,7 @@ const OpenAI = require('openai');
 
 // ---- CONFIG ----
 
-// IMPORTANT: set this env var in Railway (or whatever host)
-// e.g. in Railway → Variables → OPENAI_API_KEY = sk-...
+
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
