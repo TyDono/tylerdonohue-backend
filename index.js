@@ -12,6 +12,8 @@ const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
+console.log('Has OPENAI_API_KEY?', !!process.env.OPENAI_API_KEY);
+
 const app = express();
 
 // Allow requests from your site.
@@ -148,8 +150,18 @@ ${TYLER_KNOWLEDGE}
         res.json({ reply });
     } catch (err) {
         console.error('Chat error:', err);
-        res.status(500).json({ error: 'ai_error' });
+
+        const detail =
+            err?.response?.data ??
+            err?.message ??
+            String(err);
+
+        res.status(500).json({
+            error: 'ai_error',
+            detail,
+        });
     }
+
 });
 
 // ---- Start server ----
