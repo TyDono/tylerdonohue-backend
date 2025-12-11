@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const OpenAI = require('openai');
+const sgMail = require('@sendgrid/mail');
 
 // ---- CONFIG ----
 
@@ -330,6 +331,52 @@ A: Roles or projects where I can own or strongly influence the mobile stack (iOS
 // Health check
 app.get('/health', (req, res) => {
     res.json({ ok: true });
+});
+
+// NEW: Contact endpoint
+app.post('/contact', async (req, res) => {
+    try {
+        const { name, email, message } = req.body || {};
+
+        if (!email || !message) {
+            return res
+                .status(400)
+                .json({ ok: false, error: 'missing_fields', detail: 'email and message are required' });
+        }
+
+        if (!process.env.SENDGRID_API_KEY) {
+            return res
+                .status(500)
+                .json({ ok: false, error: 'email_not_configured' });
+        }
+
+        const safeName = (name || 'Portfolio Visitor').slice(0, 120);
+        const safeEmail = email.slice(0, 200);
+        const safeMessage = message.slice(0, 5000);
+
+        const msg = {
+            to: CONTACT_TO,
+            from: CONTACT_FROM,
+            replyTo: safeEmail,
+            subject: `New portfolio contact from ${safeName}`,
+            text: `
+From: ${safeName} <${safeEmail}>
+
+Message:
+${safeMessage}
+            `.trim(),
+        };
+
+        await sgMail.send(msg);
+
+        res.json({ ok: true });
+    } catch (err) {
+        console.error('Contact error:', err);
+        res.status(500).json({
+            ok: false,
+            error: 'send_failed',
+        });
+    }
 });
 
 // Chat endpoint
