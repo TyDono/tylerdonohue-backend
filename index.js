@@ -50,13 +50,17 @@ function loadPromptFile(filename) {
 }
 
 const TYLER_KNOWLEDGE = [
+    loadPromptFile('about-ai-and-best-at.md'),
     loadPromptFile('bio-and-general.md'),
     loadPromptFile('skills-and-tech.md'),
+    loadPromptFile('skills-mapping.md'),
     loadPromptFile('experience-and-projects.md'),
     loadPromptFile('education-and-summary.md'),
-    loadPromptFile('about-ai-and-best-at.md'),
     loadPromptFile('faq.md'),
+    loadPromptFile('services-and-process'),
+    loadPromptFile('system-rules'),
 ].join('\n\n');
+
 
 const SYSTEM_RULES = loadPromptFile('system-rules.md');
 
