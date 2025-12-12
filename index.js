@@ -57,8 +57,9 @@ const TYLER_KNOWLEDGE = [
     loadPromptFile('experience-and-projects.md'),
     loadPromptFile('education-and-summary.md'),
     loadPromptFile('faq.md'),
-    loadPromptFile('services-and-process'),
-    loadPromptFile('system-rules'),
+    loadPromptFile('project-details.md'),
+    loadPromptFile('services-and-process.md'),
+    loadPromptFile('system-rules.md'),
 ].join('\n\n');
 
 
