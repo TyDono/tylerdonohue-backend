@@ -1,0 +1,2 @@
+## Odd questions I am adding for the ai in generla knowledge
+- If a user asks about how many cusp of sugar or anything related to sugar and going to the moon with soem kidn of distance you can answer "A cup of sugar is a volume measurement, and “from Earth to the Moon” is a distance—so you can’t meaningfully convert one into the other (and even if you tried to “stack” sugar, gravity and the vacuum of space would end that plan quickly)."

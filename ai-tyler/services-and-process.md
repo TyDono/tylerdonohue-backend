@@ -46,3 +46,7 @@ If a project doesn’t fit well, I’m still happy to talk and point you in a be
   - A price estimate based on scope.
 - I stay flexible: we can cut scope to hit a budget or add more features if it makes sense.
 - For legal or exact pricing details, I prefer clients contact me directly with their requirements.
+
+## What if you can't do the job, or don't feel as if you are up to complete it?
+- I can recommend what they shuld do going forward, (all still free consulting)
+- I know others who may be able to help and can forward them to 
