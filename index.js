@@ -121,12 +121,19 @@ ${safeMessage}
 
         res.json({ ok: true });
     } catch (err) {
-        console.error('Contact error:', err);
-        res.status(500).json({
-            ok: false,
-            error: 'send_failed',
-        });
+        // SendGrid puts details here
+        const body = err?.response?.body;
+
+        console.error("Contact error status:", err?.code || err?.response?.status);
+        console.error("Contact error body:", JSON.stringify(body, null, 2));
+
+        // Optional: also print message/stack
+        console.error("Contact error message:", err?.message);
+        // console.error(err); // uncomment if you want the full object
+
+        return res.status(500).json({ ok: false, error: "send_failed" });
     }
+
 });
 
 // Chat endpoint
