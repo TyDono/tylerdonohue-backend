@@ -7,6 +7,8 @@ const OpenAI = require('openai');
 const sgMail = require('@sendgrid/mail');
 const fs = require('fs');
 const path = require('path');
+const { Resend } = require("resend");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ---- CONFIG ----
 
@@ -16,19 +18,19 @@ const client = new OpenAI({
 
 console.log('Has OPENAI_API_KEY?', !!process.env.OPENAI_API_KEY);
 
-if (process.env.SENDGRID_API_KEY) {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+if (process.env.RESEND_API_KEY) {
+    sgMail.setApiKey(process.env.RESEND_API_KEY);
 } else {
-    console.warn('WARN: SENDGRID_API_KEY not set; /contact will return email_not_configured.');
+    console.warn('WARN: RESEND_API_KEY not set; /contact will return email_not_configured.');
 }
 
-if (process.env.SENDGRID_API_KEY) {
-    console.log("SENDGRID_API_KEY present?", true);
-    console.log("SENDGRID_API_KEY prefix:", process.env.SENDGRID_API_KEY.slice(0, 3));
-    console.log("SENDGRID_API_KEY length:", process.env.SENDGRID_API_KEY.length);
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+if (process.env.RESEND_API_KEY) {
+    console.log("RESEND_API_KEY present?", true);
+    console.log("RESEND_API_KEY prefix:", process.env.RESEND_API_KEY.slice(0, 3));
+    console.log("RESEND_API_KEY length:", process.env.RESEND_API_KEY.length);
+    sgMail.setApiKey(process.env.RESEND_API_KEY);
 } else {
-    console.warn("WARN: SENDGRID_API_KEY not set");
+    console.warn("WARN: RESEND_API_KEY not set");
 }
 
 
@@ -84,56 +86,30 @@ app.get('/health', (req, res) => {
 });
 
 // Contact endpoint
-app.post('/contact', async (req, res) => {
+app.post("/contact", async (req, res) => {
     try {
         const { name, email, message } = req.body || {};
-
         if (!email || !message) {
-            return res
-                .status(400)
-                .json({ ok: false, error: 'missing_fields', detail: 'email and message are required' });
+            return res.status(400).json({ ok: false, error: "missing_fields" });
         }
 
-        if (!process.env.SENDGRID_API_KEY) {
-            return res
-                .status(500)
-                .json({ ok: false, error: 'email_not_configured' });
-        }
+        const safeName = (name || "Portfolio Visitor").slice(0, 120);
+        const safeEmail = String(email).slice(0, 200);
+        const safeMessage = String(message).slice(0, 5000);
 
-        const safeName = (name || 'Portfolio Visitor').slice(0, 120);
-        const safeEmail = email.slice(0, 200);
-        const safeMessage = message.slice(0, 5000);
-
-        const msg = {
-            to: CONTACT_TO,
-            from: CONTACT_FROM,
+        await resend.emails.send({
+            from: process.env.CONTACT_FROM,   // must be verified in Resend
+            to: process.env.CONTACT_TO,
             replyTo: safeEmail,
             subject: `New portfolio contact from ${safeName}`,
-            text: `
-From: ${safeName} <${safeEmail}>
+            text: `From: ${safeName} <${safeEmail}>\n\nMessage:\n${safeMessage}`,
+        });
 
-Message:
-${safeMessage}
-            `.trim(),
-        };
-
-        await sgMail.send(msg);
-
-        res.json({ ok: true });
+        return res.json({ ok: true });
     } catch (err) {
-        // SendGrid puts details here
-        const body = err?.response?.body;
-
-        console.error("Contact error status:", err?.code || err?.response?.status);
-        console.error("Contact error body:", JSON.stringify(body, null, 2));
-
-        // Optional: also print message/stack
-        console.error("Contact error message:", err?.message);
-        // console.error(err); // uncomment if you want the full object
-
+        console.error("Resend contact error:", err);
         return res.status(500).json({ ok: false, error: "send_failed" });
     }
-
 });
 
 // Chat endpoint
