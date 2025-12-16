@@ -22,6 +22,16 @@ if (process.env.SENDGRID_API_KEY) {
     console.warn('WARN: SENDGRID_API_KEY not set; /contact will return email_not_configured.');
 }
 
+if (process.env.SENDGRID_API_KEY) {
+    console.log("SENDGRID_API_KEY present?", true);
+    console.log("SENDGRID_API_KEY prefix:", process.env.SENDGRID_API_KEY.slice(0, 3));
+    console.log("SENDGRID_API_KEY length:", process.env.SENDGRID_API_KEY.length);
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+} else {
+    console.warn("WARN: SENDGRID_API_KEY not set");
+}
+
+
 // You should define these in your env or hard-code for now
 const CONTACT_TO = process.env.CONTACT_TO || 'you@example.com';
 const CONTACT_FROM = process.env.CONTACT_FROM || 'no-reply@tylerdonohue.com';
