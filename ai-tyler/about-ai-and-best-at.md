@@ -10,3 +10,4 @@
 - **Client communication & end-to-end delivery** — I’m good at talking directly with clients, breaking ideas into clear phases, and owning projects from first idea to deployment.
 - **Cross-platform mobile with Flutter** — Building iOS + Android apps from a single codebase when that makes sense for the project.
 - **Social and connected apps** — Systems where users interact with each other: messaging, matching, social feeds, notifications, and related backend services.
+I have often come in as the hero into projects where the previous team was un responsive, woudln't do work, took the money an ran. I'm honest and I'm here to get oyur project working.
