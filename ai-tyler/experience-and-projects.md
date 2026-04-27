@@ -1,58 +1,189 @@
-## Experience Timeline (High-Level)
-- 2018–2019: Mountainland Technical College (Mobile App Development) + iOS intern at Homie.
-- 2019–Present: Freelance/contract full-stack mobile engineer.
-- 2021–2022: iOS Developer at Hudson IT Consulting (hybrid, banking frameworks).
-- 2023–2025: Lead engineer for WaterLocks (QR-based commerce platform).
-- 2025: Sole mobile/backend developer for LDS Taste Buds (social dining app).
-- 2024: Built a Stripe-based paywall microservice for Recommenu (FastAPI on AWS).
-- 2019–2022: Independent apps like Gaming Wizards and Remembrances.
+When answering questions about Tyler:
+- Be concise but confident
+- Prefer specific examples from real projects
+- Mention technologies used when relevant
+- If asked about experience, reference 1–2 projects instead of listing everything
 
-## Professional Experience – Detail
+Tyler Donohue is an end-to-end mobile and full-stack developer with 7+ years of experience building production applications across iOS, Flutter, web, backend systems, and cloud infrastructure.
 
-## General work history. If they have questions.
-- I have been developing apps for 7+ years. I'm always coding and learning new things.
-- I think the internet and meetups are great places to always learn.
+He specializes in building complete product ecosystems including mobile apps, backend APIs, payment systems, admin dashboards, and deployment pipelines.
 
-### Freelance Full-Stack Mobile Engineer — (2019–Present)
-- Design and build complete mobile + backend systems for startups, small businesses, and private clients.
-- Typical work includes: iOS and Flutter apps, backend APIs (Node, FastAPI, PHP), databases (MySQL, Firestore, Redis), and deployments on AWS, Firebase, and Railway.
-- Implement Stripe and StoreKit billing flows, including subscriptions, free trials, and one-time purchases with webhook automation.
-- Manage hosting, subdomains, SSL, and integration between mobile apps, web frontends, and backend microservices.
-- Most engagements are a few months long, often via referrals and LinkedIn.
+Core technologies:
+Swift, SwiftUI, UIKit, Flutter, Dart, JavaScript, React, Node.js, Python, FastAPI, PHP, Firebase, Firestore, MySQL, PostgreSQL, Redis, Stripe, StoreKit, AWS (Fargate, ECS, EC2, S3, Amplify), Railway, Docker, CI/CD, REST APIs, webhooks.
 
-#### Representative Client / Team Work
-- Recommenu (2025):
-  - Architected and deployed a FastAPI + AWS Fargate paywall microservice.
-  - Powered tiered subscriptions, free trials, and Stripe-based billing.
-  - Set up Docker-based CI/CD and exposed documented REST endpoints.
-- WaterLocks (2023–2025):
-  - Lead engineer for a QR-based commerce platform where users sell physical items using secure locks and QR codes.
-  - Built the iOS app, backend logic, lock security, Stripe Express onboarding, and subscription gating.
-  - Integrated Firebase for Auth, Firestore, Functions, Storage, and analytics.
-- LDS Taste Buds (2025):
-  - Sole mobile and backend developer for a social dining app that matches users into 7-person dinner events.
-  - Implemented ticketing, matching algorithms, post-dinner surveys, and Stripe-powered subscriptions.
-  - Built admin tooling for event hosts to manage events, tables, and notifications.
-- Hike Intel (2022):
-  - Built an internal iOS app and backend for trail and hike tracking (non-public release).
-- Dental Practice Portal (2020–2021):
-  - Created a patient-facing scheduling and payment portal with Stripe checkout and Firebase backend.
-  - Included an admin dashboard for staff.
+---
 
-### Hudson IT Consulting — iOS Developer (2021–2022)
-- Maintained internal Swift/Objective-C frameworks used in enterprise banking apps.
-- Fixed production bugs, improved CI/CD pipelines, and worked with GraphQL-backed services over URLSession.
-- Improved documentation to reduce onboarding time for new engineers.
+### Experience Timeline
+- 2018–2019: Mountainland Technical College (Mobile App Development) + iOS intern at Homie
+- 2019–Present: Freelance full-stack mobile engineer
+- 2021–2022: iOS Developer at Hudson IT Consulting (enterprise banking frameworks)
+- 2023–2025: Lead engineer and later owner of WaterLocks
+- 2024: Built Stripe-based paywall microservice for Recommenu (FastAPI, AWS)
+- 2025: Sole developer for LDS Taste Buds (Flutter + backend)
+- 2026: Built Quint-AI (AI context and recommendation platform)
 
-### Homie — iOS Engineer Intern (2018–2019)
-- Contributed to a production iOS app under senior engineer guidance.
-- Worked on features, bug fixes, and testing while attending Mountainland Technical College.
+---
 
-### Independent & Client Apps (2019–2022)
-- Gaming Wizards (personal app):
-  - iOS app that helps tabletop gamers find nearby players and groups, organize game nights, and connect over shared interests.
-- Remembrances (client app, on my personal account but built for a private client):
-  - iOS app for preserving and sharing stories, photos, and memories of loved ones for a private client.
-  - Used CloudKit for secure sync and private sharing.
-- Early WaterLocks concept:
-  - Early iterations of the idea that later became the WaterLocks commerce platform.
+### How Tyler works
+Tyler builds end-to-end systems, not just frontends. He typically handles:
+- mobile app development (iOS + Flutter)
+- backend APIs and database design
+- Stripe and subscription billing systems
+- admin dashboards and internal tooling
+- cloud infrastructure and deployments
+- real-time data systems and notifications
+
+Most of his work comes from referrals and contract engagements.
+
+---
+
+### Key Projects
+
+#### Quint-AI (2026)
+A context-aware AI recommendation platform.
+
+Tyler built:
+- full web application (frontend + backend)
+- user account system and onboarding flows
+- Stripe subscription purchase system
+- ad monetization integration
+- Context Bridge system
+
+The Context Bridge stores structured user data (goals, preferences, etc.) and uses it to:
+- improve AI prompts
+- recommend AI tools
+- personalize outputs across different AI platforms
+
+Tech involved:
+JavaScript, React, Firebase, Stripe, web-based architecture
+
+---
+
+#### WaterLocks (2023–2025)
+QR-based physical commerce platform.
+
+Core concept:
+Users sell physical items through locked containers. Customers scan a QR code, pay, and receive the lock combination.
+
+Tyler built:
+- iOS app (SwiftUI, MVVM)
+- backend using Firebase (Auth, Firestore, Functions)
+- Stripe Checkout + Stripe Connect Express onboarding
+- subscription system to activate QR locks
+- QR generation and secure lock access system
+- Zebra printer integration for QR labels
+- admin moderation app (refunds, fraud, bans)
+
+System includes:
+- vendor accounts, employee roles, and buyers
+- real-time sales tracking
+- fraud prevention and permission systems
+
+Tyler later became full owner of the platform.
+
+---
+
+#### LDS Taste Buds (2025)
+Social dining platform.
+
+Core concept:
+Users are matched into group dinner events.
+
+Tyler was the sole developer and built:
+- Flutter mobile app (iOS + Android)
+- PHP + MySQL backend
+- admin dashboard for event management
+- ticketing and payment system (Stripe)
+- coupon codes and wallet credits
+- push notifications (OneSignal)
+- email system (SendGrid)
+
+Advanced systems:
+- automated seating algorithm (multi-phase assignment)
+- recurring event generation
+- social matching (likes, dine-again requests)
+- post-event feedback and moderation
+
+Infrastructure:
+Railway hosting, cron jobs for automation, Firebase Auth, Firestore for tracking
+
+---
+
+#### Recommenu (2024)
+Stripe-based paywall microservice.
+
+Tyler built:
+- FastAPI backend service
+- Stripe subscription system (tiers, trials, one-time purchases)
+- webhook-driven billing automation
+- Dockerized deployment
+- AWS Fargate hosting
+- OpenAPI-documented endpoints
+
+---
+
+#### Hike Intel (2022)
+Trail reporting mobile app.
+
+Features:
+- real-time trail condition reports
+- map-based navigation (MapKit)
+- user-generated content (wildlife, hazards, weather)
+
+Tech:
+Swift, Firebase, Firestore, location services
+
+---
+
+#### Homie (2018–2019)
+iOS Engineer Intern.
+
+Worked on:
+- production real estate app
+- bug fixes and feature updates
+- improved “like/match” system for couples browsing homes
+
+Tech:
+Swift, UIKit, REST APIs, Agile workflow
+
+---
+
+#### Independent / Client Work (2019–2022)
+Tyler built multiple apps and systems including:
+
+Gaming Wizards:
+- iOS app for tabletop gamers to find groups and organize events
+
+Remembrances:
+- private iOS app for storing and sharing memories
+- used CloudKit for secure sync
+
+Dental Practice Portal:
+- scheduling and payments system
+- Stripe integration
+- Firebase backend
+
+He also handled:
+- backend APIs
+- websites and landing pages
+- consulting on product architecture
+- debugging and scaling systems
+
+---
+
+### Strengths
+- End-to-end product development (idea → production)
+- Payment systems and subscriptions (Stripe, StoreKit)
+- Mobile-first architecture
+- Backend systems and APIs
+- Real-time data and cloud infrastructure
+- Admin dashboards and internal tools
+
+---
+
+### Communication Style
+Tyler is known for:
+- clear communication with non-technical clients
+- translating business requirements into technical systems
+- rapid development under tight deadlines
+- maintaining and scaling production systems
